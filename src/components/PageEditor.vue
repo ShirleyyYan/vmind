@@ -1,7 +1,11 @@
 <template>
   <div class="container">
     <div class="container-header">
-      <slot name="header"></slot>
+      <editor-header
+      v-bind:title="AppConfig.appTitle"
+      v-on:show-sidebar="toggleSidebar(true)"
+      name="header"
+      ></editor-header>
     </div>
     <div class="container-nav">
       <slot name="nav"></slot>
@@ -12,15 +16,38 @@
     <div class="container-tools">
       <slot name="tools"></slot>
     </div>
+    <editor-sidebar
+    v-on:sidebar-hide="toggleSidebar(false)"
+    v-show="isSidebarShow"
+    class="container-sidemenu"
+    ></editor-sidebar>
   </div>
 </template>
 
 <script>
 import '../css/reset.css';
+import AppConfig from '../assets/config.json';
+
+import EditorHeader from './EditorHeader.vue';
+import EditorSidebar from './EditorSidebar';
+
 export default {
     name: 'PageEditor',
+    components: {
+        EditorHeader,
+        EditorSidebar
+    },
     data () {
-        return { msg: 'Editor Page' }
+        return {
+            msg: 'Editor Page' ,
+            isSidebarShow: false,
+            AppConfig
+            }
+    },
+    methods: {
+        toggleSidebar: function (value) {
+            this.isSidebarShow = value;
+        }
     }
 }
 </script>
@@ -44,5 +71,12 @@ export default {
     height: 50vh;
     bottom: 0px;
     background-color: turquoise;
+}
+.container-sidemenu {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    background-color: bisque;
 }
 </style>
