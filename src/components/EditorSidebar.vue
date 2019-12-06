@@ -1,5 +1,5 @@
 <template>
-    <div v-on:click="clickCover">
+    <div class="container" v-on:click="clickCover">
         <div></div>
     </div>
 </template>
@@ -16,5 +16,7 @@ export default {
 </script>
 
 <style scoped>
-
+.container {
+    background: rgba(10, 10, 10, 0.5);
+}
 </style>

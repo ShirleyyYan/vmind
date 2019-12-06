@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <span class="logo" v-on:click="clickLogo"></span>
-        <span class="title">{{ title }}</span>
+    <div class="container">
+        <span class="logo" v-on:click="clickLogo">{{ title }} ▾</span>
+        <span class="title">文件名</span>
     </div>
 </template>
 
@@ -20,17 +20,24 @@ export default {
 </script>
 
 <style scoped>
+.container {
+    background: #393f4f;
+    line-height: 5vh;
+    color: white;
+}
 .logo {
     display: block;
     position: fixed;
-    width: 5vh;
+    min-width: 5vh;
     height: 5vh;
-    background-color: brown;
+    font-size: 2vh;
+    padding: 0px 20px;
+    background-color: #fc8383;
+    cursor: pointer;
 }
 .title {
     position: relative;
-    line-height: 5vh;
-    font-size: 4vh;
+    font-size: 3vh;
     text-transform: uppercase;
 }
 </style>
