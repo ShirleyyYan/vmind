@@ -4,17 +4,58 @@
             <div class="container-back" v-on:click="clickBackIcon">
                 <div class="back-icon">➔</div>
             </div>
+            <ul class="container-tabs-title">
+            <li
+            v-for="tab in tabs"
+            v-bind:key="tab.name"
+            v-on:click="tabListUpdate(tab.name)"
+            v-bind:class="['sidebar-tab-item', {'sidebar-tab-item-active': currentTab === tab.name}]"
+            >{{tab.title}}</li>
+            </ul>
+        </div><div class="container-right">
+            <keep-alive>
+                <component
+                    v-bind:is="currentTabComponent"
+                    class="container-right"
+                ></component>
+            </keep-alive>
         </div>
-        <div class="container-right"></div>
     </div>
 </template>
 
 <script>
+import EditorSidebarTabNew from './EditorSidebarTabList/EditorSidebarTabNew.vue';
+import EditorSidebarTabOpen from './EditorSidebarTabList/EditorSidebarTabOpen.vue';
 export default {
     name: 'EditorSidebarTab',
+    data: function() {
+        return {
+            currentTab: 'new',
+            tabs: [{
+                name: 'new',
+                title: '新建'
+            },{
+                name: 'open',
+                title: '打开'
+            }]
+        };
+    },
+    computed: {
+        currentTabComponent: function () {
+            return `editor-sidebar-tab-${this.currentTab}`;
+        }
+    },
+    components: {
+        EditorSidebarTabNew,
+        EditorSidebarTabOpen
+    },
     methods: {
         clickBackIcon: function () {
             this.$emit('sidebar-hide');
+        },
+
+        tabListUpdate: function (str) {
+            this.currentTab = str
         }
     }
 }
@@ -22,8 +63,7 @@ export default {
 
 <style scoped>
 .container {
-    width: 70vw;
-    min-width: 300px;
+    width: 500px;
     height: 100vh;
     background-color: white;
     border: #fc8383 1px solid; 
@@ -31,10 +71,11 @@ export default {
 }
 .container-left {
     display: inline-block;
-    width: 40%;
+    width: 150px;
     height: 100%;
     background-color: #fc8383;
     color: white;
+    vertical-align: top;
 }
 .container-back {
     text-align: center;
@@ -53,9 +94,25 @@ export default {
     font-size: 3vh;
     transform: rotateY(180deg);
 }
+.container-tabs-title {
+    margin-top: 4vh;
+    font: 2vh white;
+    line-height: 5vh;
+}
+.sidebar-tab-item {
+    padding-left: 4vh;
+}
+.sidebar-tab-item:hover {
+    background-color: #fb6a6a;
+}
+.sidebar-tab-item-active, .sidebar-tab-item-active:hover {
+    background-color: #fdb4b4;
+}
 .container-right {
     display: inline-block;
-    height: 60%;
-    width: 65%;
+    height: 100%;
+    width: 350px;
+    vertical-align: top;
+    overflow: hidden;
 }
 </style>

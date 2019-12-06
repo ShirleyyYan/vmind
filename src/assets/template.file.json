@@ -1,0 +1,13 @@
+{
+    "name": "new file",
+    "information": {
+        "date-created": "",
+        "date-updated": "",
+        "author": "me"
+    },
+    "nodes": [],
+    "config": {
+        "layout": "",
+        "theme" : ""
+    }
+}

@@ -14,11 +14,11 @@
     </div>
 
     <div class="container-main">
-      <slot name="main"></slot>
+      <div name="main"></div>
     </div>
 
     <div class="container-tools">
-      <slot name="tools"></slot>
+      <div name="tools"></div>
     </div>
 
     <editor-sidebar

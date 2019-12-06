@@ -1,0 +1,26 @@
+{
+    "id": "0001",
+    "children": [],
+    "parent": "0000",
+    "content": {
+        "text": "",
+        "font": "",
+        "position": {
+            "x": 0,
+            "y": 0
+        },
+        "label": {
+            "importance": 0,
+            "progress": 0
+        },
+        "link": {
+            "href": "",
+            "description": ""
+        },
+        "img": {
+            "href": "",
+            "description": ""
+        },
+        "notes": ""
+    }
+}
