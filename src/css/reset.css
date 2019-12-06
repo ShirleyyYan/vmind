@@ -1,3 +1,6 @@
+* {
+    user-select:none; 
+}
 html {
     overflow-x: auto;
     overflow-y: scroll;
