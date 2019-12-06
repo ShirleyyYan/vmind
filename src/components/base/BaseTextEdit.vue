@@ -45,5 +45,8 @@ input {
     line-height: inherit;
     background: inherit;
     border: none;
+    outline: none;
+    text-align: inherit;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 </style>
