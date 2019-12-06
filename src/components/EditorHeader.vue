@@ -1,16 +1,20 @@
 <template>
     <div class="container">
         <span class="logo" v-on:click="clickLogo">{{ title }} ▾</span>
-        <span class="title">文件名</span>
+        <base-text-edit class="title" text="file name" width="20">文件名</base-text-edit>
     </div>
 </template>
 
 <script>
+import BaseTextEdit from './base/BaseTextEdit';
 export default {
     name: 'EditorHeader',
     props: [
         "title"
     ],
+    components: {
+        BaseTextEdit
+    },
     methods: {
         clickLogo: function () {
             this.$emit('show-sidebar');
@@ -38,6 +42,5 @@ export default {
 .title {
     position: relative;
     font-size: 3vh;
-    text-transform: uppercase;
 }
 </style>
