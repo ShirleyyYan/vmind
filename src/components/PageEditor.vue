@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+
     <div class="container-header">
       <editor-header
       v-bind:title="AppConfig.appTitle"
@@ -7,15 +8,19 @@
       name="header"
       ></editor-header>
     </div>
+
     <div class="container-nav">
-      <slot name="nav"></slot>
+      <editor-nav></editor-nav>
     </div>
+
     <div class="container-main">
       <slot name="main"></slot>
     </div>
+
     <div class="container-tools">
       <slot name="tools"></slot>
     </div>
+
     <editor-sidebar
     v-on:sidebar-hide="toggleSidebar(false)"
     v-show="isSidebarShow"
@@ -29,13 +34,15 @@ import '../css/reset.css';
 import AppConfig from '../assets/config.json';
 
 import EditorHeader from './EditorHeader.vue';
-import EditorSidebar from './EditorSidebar';
+import EditorSidebar from './EditorSidebar.vue';
+import EditorNav from './EditorNav.vue';
 
 export default {
     name: 'PageEditor',
     components: {
         EditorHeader,
-        EditorSidebar
+        EditorSidebar,
+        EditorNav
     },
     data () {
         return {
