@@ -40,10 +40,10 @@ let xmindStage = (function () {
         let parent = ComponentNode.SelectedNodes[0];
         if (parent) {
             let node = new ComponentNode({
-                id: parent.id + '_0',
+                id: parent.id + '_0' + Math.random().toString().slice(3, 6),
                 level: parent.level + 1,
-                x: parent.x + 100,
-                y: parent.y + 100
+                x: parent.x + parent.width * 1.01,
+                y: parent.y + Math.random() * 50
             }, xmindScene.rootElement, xmindScene);
             ComponentNode.setSelected(node.id);
         }
