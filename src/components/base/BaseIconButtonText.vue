@@ -1,6 +1,7 @@
 <template>
     <div class="container-icon-text"
     v-bind:style="btnStyle"
+    v-on:click="btnClick"
     >
     {{title}}
     </div>
@@ -36,6 +37,11 @@ export default {
                 'min-width': `${this.width}px`,
                 height: `%{this.height}px`
             };
+        }
+    },
+    methods: {
+        btnClick: function () {
+            this.$emit('btn-text-click');
         }
     }
 

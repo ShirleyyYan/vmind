@@ -5,7 +5,10 @@
         <base-icon-button class="icon-item" v-bind:size="30" title="Delete Node"></base-icon-button>
     </editor-nav-icon-group>
     <editor-nav-icon-group>
-        <base-icon-text title='Insert Lower Level'></base-icon-text>
+        <base-icon-text
+        title='Insert Lower Level'
+        v-on:btn-text-click="addChildNode"
+        ></base-icon-text>
     </editor-nav-icon-group>
     </div>
 </template>
@@ -20,6 +23,11 @@ export default {
         BaseIconButton,
         EditorNavIconGroup,
         BaseIconText
+    },
+    methods: {
+        addChildNode: function () {
+            this.$store.dispatch('NodeList/addNodeToChildAction');
+        }
     }
 }
 </script>

@@ -1,7 +1,9 @@
 {
     "baseTextUpdate": "base-text-update",
 
-
     "sidebarShow": "sidebar-show",
     "sidebarHide": "sidebar-hide",
+
+    "btnIconClick": "btn-icon-click",
+    "btnTextClick": "btn-text-click"
 }

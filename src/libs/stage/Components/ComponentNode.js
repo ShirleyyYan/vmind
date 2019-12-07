@@ -5,11 +5,14 @@ export default class ComponentNode {
         id, 
         parent = '0', 
         level = 0, 
+        x = 100,
+        y = 200,
         content = {
             text: 'new node'
-        }} = {}, parentElement) {
+        }} = {}, parentElement, scene) {
 
         this.id = id;
+        this.app = scene;
         
         this.graphcs = new PIXI.Container();
 
@@ -33,10 +36,16 @@ export default class ComponentNode {
         this.graphcs.addChild(this.graphcText);
 
         parentElement && parentElement.addChild(this.graphcs);
+        
+        this.graphcs.position.set(x, y);
+        this.x = x;
+        this.y = y;
 
-        this.graphcs.position.set(400, 400);
+        this.selected = false;
 
         this.addEvent();
+
+        ComponentNode.NodeList.push(this);
     }
 
     addEvent () {
@@ -44,8 +53,32 @@ export default class ComponentNode {
     }
 
     updateSelectedState (element, bool) {
-        console.log('updating');
+        console.log('selected', this.id, !!bool);
+        if (!!bool) {
+            ComponentNode.setSelected(this.id);
+        } else {
+            ComponentNode.setSelected();
+        }
+    }
+
+    setSelectedState (bool) {
         this.graphcBackgroundActive.visible = !!bool;
-        
+        this.selected = !!bool;
+    }
+
+    static setSelected (id) {
+        ComponentNode.SelectedNodes = [];
+        for (let i = 0; i < ComponentNode.NodeList.length; ++i) {
+            if (id && id === ComponentNode.NodeList[i].id) {
+                ComponentNode.NodeList[i].setSelectedState(true);
+                ComponentNode.SelectedNodes.push(ComponentNode.NodeList[i]);
+            } else {
+                ComponentNode.NodeList[i].setSelectedState(false);
+            }
+        }
+        console.log(ComponentNode.NodeList.length, ComponentNode.SelectedNodes[0]);
     }
 }
+
+ComponentNode.NodeList = [];
+ComponentNode.SelectedNodes = [];
