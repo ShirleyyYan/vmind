@@ -1,4 +1,7 @@
 {
+    "baseTextUpdate": "base-text-update",
+
+
     "sidebarShow": "sidebar-show",
-    "sidebarHide": "sidebar-hide"
+    "sidebarHide": "sidebar-hide",
 }
