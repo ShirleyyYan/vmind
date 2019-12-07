@@ -26,6 +26,7 @@
     v-show="isSidebarShow"
     class="container-sidemenu"
     ></editor-sidebar>
+
   </div>
 </template>
 
@@ -37,13 +38,15 @@ import EditorSidebar from './EditorSidebar.vue';
 import EditorNav from './EditorNav.vue';
 import EditorMain from './EditorMain.vue';
 
+
 export default {
     name: 'PageEditor',
     components: {
         EditorHeader,
         EditorSidebar,
         EditorNav,
-        EditorMain
+        EditorMain,
+        BaseAlertWindow
     },
     data () {
         return {
