@@ -15,8 +15,8 @@ export default class ComponentNode {
         this.app = scene;
         this.level = level;
 
-        this.width = 200 * (1 - level * 0.05);
-        this.height = 50 * (1 - level * 0.05);
+        this.width = 150 * (1 - level * 0.05);
+        this.height = 30 * (1 - level * 0.05);
         console.log(level, this.width, this.height);
         
         this.graphcs = new PIXI.Container();

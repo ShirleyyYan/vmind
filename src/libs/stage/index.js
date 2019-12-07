@@ -42,8 +42,8 @@ let xmindStage = (function () {
             let node = new ComponentNode({
                 id: parent.id + '_0' + Math.random().toString().slice(3, 6),
                 level: parent.level + 1,
-                x: parent.x + parent.width * 1.01,
-                y: parent.y + Math.random() * 50
+                x: parent.x + parent.width * 1.5,
+                y: parent.y + Math.random() * 100
             }, xmindScene.rootElement, xmindScene);
             ComponentNode.setSelected(node.id);
         }
