@@ -82,3 +82,4 @@ export default class ComponentNode {
 
 ComponentNode.NodeList = [];
 ComponentNode.SelectedNodes = [];
+window.NodeList = ComponentNode.NodeList;
