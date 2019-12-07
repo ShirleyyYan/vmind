@@ -70,7 +70,8 @@ export default {
     background-color: burlywood;
 }
 .container-main {
-    height: 75vh;
+    height: calc(74vh - 1px);
+    margin-top:1px;
     background-color: darkolivegreen;
 }
 .container-tools {

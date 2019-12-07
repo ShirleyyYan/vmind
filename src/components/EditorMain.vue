@@ -1,14 +1,13 @@
 <template>
-    <div ref="container-stage" class="container">
-        stage
-    </div>
+    <div ref="container-stage" class="container"></div>
 </template>
 
 <script>
+import XmindStage from '../libs/stage/index.js';
 export default {
     name: 'EditorMain',
     mounted: function () {
-        console.log(PIXI);
+        let stage = XmindStage.CreateStage({parentDom:this.$refs['container-stage']} );
     }
 }
 </script>
