@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import './assets/style/reset.css';
 export default {
   name: 'App'
 }

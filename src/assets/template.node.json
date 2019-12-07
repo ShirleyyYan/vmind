@@ -1,8 +1,8 @@
 {
     "id": "0001",
     "children": [],
-    "parent": "0000",
-    "level": 0,
+    "parent": "0",
+    "level": "0",
     "content": {
         "text": "",
         "font": "",

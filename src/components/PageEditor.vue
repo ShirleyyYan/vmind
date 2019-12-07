@@ -14,7 +14,7 @@
     </div>
 
     <div class="container-main">
-      <div name="main"></div>
+      <editor-main></editor-main>
     </div>
 
     <div class="container-tools">
@@ -30,19 +30,20 @@
 </template>
 
 <script>
-import '../css/reset.css';
 import AppConfig from '../assets/config.json';
 
 import EditorHeader from './EditorHeader.vue';
 import EditorSidebar from './EditorSidebar.vue';
 import EditorNav from './EditorNav.vue';
+import EditorMain from './EditorMain.vue';
 
 export default {
     name: 'PageEditor',
     components: {
         EditorHeader,
         EditorSidebar,
-        EditorNav
+        EditorNav,
+        EditorMain
     },
     data () {
         return {
@@ -69,7 +70,8 @@ export default {
     background-color: burlywood;
 }
 .container-main {
-    height: 75vh;
+    height: calc(74vh - 1px);
+    margin-top:1px;
     background-color: darkolivegreen;
 }
 .container-tools {

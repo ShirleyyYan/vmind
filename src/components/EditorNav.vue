@@ -15,5 +15,7 @@ export default {
 </script>
 
 <style scoped>
-
+.container {
+    border-bottom: 1px solid #dbdbdb
+}
 </style>
