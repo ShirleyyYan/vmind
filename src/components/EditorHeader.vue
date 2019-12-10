@@ -1,7 +1,12 @@
 <template>
     <div class="container">
         <span class="logo" v-on:click="clickLogo">{{ title }} ▾</span>
-        <base-text-edit class="title" text="file name" width="20">文件名</base-text-edit>
+        <base-text-edit
+        class="title"
+        v-bind:text="filename"
+        v-on:base-text-update="setFileName"
+        width="20"
+        ></base-text-edit>
     </div>
 </template>
 
@@ -12,12 +17,21 @@ export default {
     props: [
         "title"
     ],
+    computed: {
+        filename: function() {
+            return this.$store.state.FileInformation.fileName;
+        }
+    },
     components: {
         BaseTextEdit
     },
     methods: {
         clickLogo: function () {
             this.$emit('show-sidebar');
+        },
+
+        setFileName: function(value) {
+            this.$store.dispatch("FileInformation/updateFileName", value);
         }
     }
 }

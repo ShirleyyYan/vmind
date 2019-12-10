@@ -20,6 +20,7 @@ export default {
     methods: {
         stopEdit: function () {
             this.isEditing = false;
+            this.$emit('base-text-update', this.currentText);
         }
     },
     watch: {
