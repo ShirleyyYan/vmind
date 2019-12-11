@@ -49,7 +49,7 @@ export default {
     margin: 0 auto;
     width: 60vw;
     min-height: 30vh;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #FAFAFA;
     border-radius: 5px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
@@ -68,5 +68,6 @@ export default {
 }
 .window-body input {
     font-size: 18px;
+    border-radius: 4px;
 }
 </style>

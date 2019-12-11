@@ -1,12 +1,18 @@
 <template>
-    <div class="container-icon-group">
+    <div class="container-icon-group" v-bind:style="{width:domWidth + 'px'}">
         <slot></slot>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'EditorNavIconGroup'
+    name: 'EditorNavIconGroup',
+    props: {
+        domWidth: {
+            type: Number,
+            default: 300
+        }
+    }
 }
 </script>
 
