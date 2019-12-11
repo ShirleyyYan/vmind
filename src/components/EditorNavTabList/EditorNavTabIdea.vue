@@ -10,6 +10,16 @@
         v-on:btn-text-click="addChildNode"
         ></base-icon-text>
     </editor-nav-icon-group>
+    <editor-nav-icon-group>
+        <base-icon-text
+        title='弹窗'
+        v-on:btn-text-click="alertWindow('test')"
+        ></base-icon-text>
+        <base-icon-text
+        title='弹窗'
+        v-on:btn-text-click="alertWindow('test-two')"
+        ></base-icon-text>
+    </editor-nav-icon-group>
     </div>
 </template>
 
@@ -27,6 +37,10 @@ export default {
     methods: {
         addChildNode: function () {
             this.$store.dispatch('NodeList/addNodeToChildAction');
+        },
+
+        alertWindow: function (windowId) {
+            this.$store.dispatch('StageState/alertWindowAction_Open', windowId);
         }
     }
 }

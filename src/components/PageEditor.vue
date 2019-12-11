@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-
     <div class="container-header">
       <editor-header
       v-bind:title="AppConfig.appTitle"
@@ -8,30 +7,28 @@
       name="header"
       ></editor-header>
     </div>
-
     <div class="container-nav">
       <editor-nav></editor-nav>
     </div>
-
     <div class="container-main">
       <editor-main></editor-main>
     </div>
-
     <div class="container-tools">
       <div name="tools"></div>
     </div>
-
     <editor-sidebar
     v-on:sidebar-hide="toggleSidebar(false)"
     v-show="isSidebarShow"
     class="container-sidemenu"
     ></editor-sidebar>
-
+    <editor-cover></editor-cover>
   </div>
 </template>
 
 <script>
 import AppConfig from '../assets/config.json';
+
+import EditorCover from './EditorCover';
 
 import EditorHeader from './EditorHeader.vue';
 import EditorSidebar from './EditorSidebar.vue';
@@ -46,7 +43,7 @@ export default {
         EditorSidebar,
         EditorNav,
         EditorMain,
-        BaseAlertWindow
+        EditorCover
     },
     data () {
         return {

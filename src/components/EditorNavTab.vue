@@ -91,6 +91,7 @@ export default {
 
 .nav-tab-content {
     height: 16vh;
+    width: 300vw;
     background-color: white;
     text-align: left;
 }

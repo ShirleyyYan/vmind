@@ -1,21 +1,39 @@
 const state = {
     zoom: 1,
-    selectedNodes: []
+    selectedNodes: [],
+    isAlerting: false,
+    currentAlertingWindow: null
 };
 
 const getters = {
-
+    getAlertingState() {
+        return state.isAlerting;
+    },
+    getCurrentAlertingWindow() {
+        return state.currentAlertingWindow;
+    }
 };
 
 const actions = {
-    updateFileName (context, newValue) {
-        context.commit('setFileName', newValue);
-    }
+    alertWindowAction_Open (context, windowId) {
+        context.commit('alertWindowMutation_Open', windowId);
+    },
+
+    alertWindowAction_Close (context) {
+        context.commit('alertWindowMutation_Close');
+    } 
 };
 
 const mutations = {
-    setFileName (state, newValue) {
+    alertWindowMutation_Open (state, windowId) {
+        state.isAlerting = true;
+        state.currentAlertingWindow = windowId;
+    },
+    alertWindowMutation_Close (state) {
+        state.isAlerting = false;
+        state.currentAlertingWindow = null;
     }
+
 };
 
 export default {
